@@ -1,2 +1,2 @@
-# nathan-wade.com
+# Github Pages Site
 Personal Site
