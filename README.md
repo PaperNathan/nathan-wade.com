@@ -1,2 +1,7 @@
 # Github Pages Site
-Personal Site
+🚀 [View deploy](https://nathan-wade.com)
+
+## Todo:
+- [ ] Single Info Page
+- [ ] Contact
+- [ ] Sandbox
