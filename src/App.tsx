@@ -1,11 +1,14 @@
 import './App.scss'
-import { Link } from "react-router-dom";
+import Sidebar from './components/Sidebar/Sidebar';
+import { Outlet } from "react-router-dom";
 
 export default function App() {
   return (
-    <div id="App">
-      <h1>Test</h1>
-      <Link to="/projects">Projects</Link>
+    <div className="App">
+      <Sidebar></Sidebar>
+      <div className="App__content">
+        <Outlet />
+      </div>
     </div>
   )
 }
