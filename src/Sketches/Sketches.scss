@@ -2,4 +2,38 @@
   h1 {
     color: salmon;
   }
+
+  &__sketches {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+.Sketch {
+  height: 100px;
+  width: 20%;
+  margin: 10px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &__placeholder {
+    height: 100%;
+    width: 100%;
+    background: slategrey;
+    color: lightgrey;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      color: white;
+      cursor: pointer;
+    }
+  }
 }
