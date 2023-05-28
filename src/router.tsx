@@ -30,6 +30,7 @@ export default function getRouter() {
           path: "/code-sketches",
           element: <SketchesHome />,
         },
+        // Specific Sketches
         {
           path: "/code-sketches/sketch",
           element: <PlaceholderSketch />,

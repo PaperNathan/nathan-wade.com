@@ -7,17 +7,37 @@ export default function SketchesHome() {
     <div className="SketchesHome">
       <h1>Code Sketches</h1>
         <div className="SketchesHome__sketches">
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
           <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
+          <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
+          <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
+          <Sketch url="/code-sketches/sketch" />
+          <Sketch title="Placeholder" url="/code-sketches/sketch" />
+          <Sketch url="/code-sketches/sketch" />
+          
         </div>
       <Link to="/">Go Back</Link>
     </div>

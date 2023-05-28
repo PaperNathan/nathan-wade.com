@@ -1,25 +1,35 @@
 .SketchesHome {
+  padding: 1em;
+  box-sizing: border-box;
+
   h1 {
     color: salmon;
   }
 
   &__sketches {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0 auto;
-    width: 80%;
+    width: 100%;
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
   }
 }
 
 .Sketch {
   height: 100px;
-  width: 20%;
-  margin: 10px;
+  width: 100%;
   border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__link {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   &__placeholder {
     height: 100%;
