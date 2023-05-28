@@ -5,6 +5,7 @@ import Home from "@/Home/Home";
 import ProjectsHome from "@/Projects/ProjectsHome";
 import ArtHome from "@/Art/ArtHome";
 import SketchesHome from "@/Sketches/SketchesHome";
+import PlaceholderSketch from "@/Sketches/PlaceholderSketch/PlaceholderSketch";
 
 export default function getRouter() {
   return createBrowserRouter([
@@ -29,6 +30,10 @@ export default function getRouter() {
           path: "/code-sketches",
           element: <SketchesHome />,
         },
+        {
+          path: "/code-sketches/sketch",
+          element: <PlaceholderSketch />,
+        }
       ]
     },
   ]);
