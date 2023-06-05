@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './PlaceholderSketch.scss'
 
 export default function PlaceholderSketch() {
   return (

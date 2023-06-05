@@ -21,7 +21,7 @@ export default function ErrorPage() {
 
   return (
     <div className="Error">
-      <h1 className="size-xl">404</h1>
+      <h1 className="display">404</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
         <i>{errorMessage(error)}</i>
