@@ -7,7 +7,8 @@
 .App {
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-columns: 20em 1fr;
-  grid-template-areas: 'sidebar content';
+
+  &__content {
+    padding: 1em;
+  }
 }
