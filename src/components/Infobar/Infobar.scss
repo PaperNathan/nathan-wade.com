@@ -1,0 +1,9 @@
+.Infobar {
+  width: 100vw;
+  padding: 2px 5px;
+  background-color: #333339;
+  border-top: 1px solid #444;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

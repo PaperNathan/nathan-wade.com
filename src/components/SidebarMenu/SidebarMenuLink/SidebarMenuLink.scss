@@ -1,0 +1,11 @@
+.SidebarMenuLink {
+  display: flex;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  .SidebarMenuLink__icon {
+    margin-right: 1.5rem;
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,43 @@
+.IconBar {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  background-color: #333339;
+  border-right: 1px solid #444;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__icon {
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+  
+    & > * {
+      opacity: 0.5;
+      height: 32px;
+      width: 32px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      & > * {
+        opacity: 1;
+      }
+    }
+  }
+
+  .active {
+    border-left: 2px solid #fff;
+    & > * {
+      opacity: 1;
+    }
+  }
+}
