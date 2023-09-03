@@ -5,9 +5,12 @@ import {
   PersonFilled 
 } from "@ricons/material";
 import SidebarMenuLink from "./SidebarMenuLink/SidebarMenuLink";
+import type { ReactNode, HTMLAttributes } from "react";
 
-type SidebarMenuProps = {
+
+type SidebarMenuProps = HTMLAttributes<HTMLDivElement> & {
   show: boolean,
+  children: ReactNode,
 }
 
 export default function SidebarMenu(props: SidebarMenuProps) {
@@ -15,7 +18,6 @@ export default function SidebarMenu(props: SidebarMenuProps) {
     <>
       { props.show ?
         <div className="SidebarMenu">
-          { props.bool ? <div>Hey</div> : <></> }
           <SidebarMenuLink>
             <PersonFilled className="SidebarMenuLink__icon" />
             <Link to="/" className="SidebarMenuLink__link">nathan.yaml</Link>

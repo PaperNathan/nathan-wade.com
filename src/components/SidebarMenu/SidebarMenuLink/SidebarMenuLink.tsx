@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+type SidebarMenuLinkProps = {
+  children: ReactNode,
+}
 
-export default function SidebarMenuLink(props: unknown) {
-  const { children } = props;
-
+export default function SidebarMenuLink(props: SidebarMenuLinkProps) {
   return (
     <div className="SidebarMenuLink">
-      {children}
+      {props.children}
     </div>
   )
 }

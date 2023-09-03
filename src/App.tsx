@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
 import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
-// import FileNavigation from "@/components/SidebarMenu/FileNavigation/FileNavigation";
+import FileNavigation from "@/components/SidebarMenu/FileNavigation/FileNavigation";
 import Infobar from "@/components/Infobar/Infobar";
 
 export default function App() {
@@ -19,11 +19,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar className="App__navbar" />
+      <Navbar />
       <div className="App__layout">
-        <IconBar className="App__iconbar" />
-        <SidebarMenu className="App__sidebar" show={true}>
-          {sidebarContent}
+        <IconBar />
+        <SidebarMenu show={true}>
+          {/* {sidebarContent} */}
+          <FileNavigation />
         </SidebarMenu>
         <div className="App__main">
           <Outlet />
