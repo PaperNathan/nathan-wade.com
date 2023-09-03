@@ -1,0 +1,29 @@
+.SidebarMenu {
+  background-color: #333339;
+  border-right: 1px solid #444;
+  padding: 2em;
+  
+  display: flex;
+  flex-direction: column;
+
+  & > a {
+    margin-bottom: 0.8em;
+  }
+
+  .SidebarMenuLink {
+    height: 1em;
+    margin-bottom: 0.5em;
+  
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      flex: 1;
+      height: 1em;
+    }
+
+    &__link {
+      flex: 5;
+    }
+  }
+}

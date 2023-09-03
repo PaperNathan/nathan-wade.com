@@ -1,0 +1,32 @@
+.Navbar {
+  width: 100vw;
+  padding: 2px 5px;
+  background-color: #333339;
+  border-bottom: 1px solid #444;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+  }
+
+  &__routeInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__appIcons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
