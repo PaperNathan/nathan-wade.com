@@ -1,6 +1,6 @@
 import "./Infobar.scss";
 
-export default function Infobar(props: any) {
+export default function Infobar() {
   return (
     <div className="Infobar">
       Infobar

@@ -1,6 +1,5 @@
 import "./IconBar.scss"
 import { ContentCopyRound, SearchSharp, ForumOutlined } from "@ricons/material";
-import { useState } from "react";
 
 export default function IconBar() {
   return (

@@ -1,5 +1,5 @@
 
-export default function SidebarMenuLink(props: any) {
+export default function SidebarMenuLink(props: unknown) {
   const { children } = props;
 
   return (

@@ -6,7 +6,11 @@ import {
 } from "@ricons/material";
 import SidebarMenuLink from "./SidebarMenuLink/SidebarMenuLink";
 
-export default function SidebarMenu(props) {
+type SidebarMenuProps = {
+  show: boolean,
+}
+
+export default function SidebarMenu(props: SidebarMenuProps) {
   return (
     <>
       { props.show ?
