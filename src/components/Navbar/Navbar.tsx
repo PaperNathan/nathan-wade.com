@@ -1,7 +1,8 @@
 import "./Navbar.scss";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Popover } from "antd";
-import { Github, Linkedin, Spotify, Asterisk, Dev } from "@ricons/fa";
+import Icon from "./Icon/Icon";
+import { Github, Linkedin, Spotify, DiceD20, Dev, Codepen } from "@ricons/fa";
 import { ChromeReaderModeSharp } from "@ricons/material";
 import type { HTMLAttributes } from "react";
 
@@ -21,11 +22,11 @@ export default function Navbar(props: NavbarMenuProps) {
   return (
     <div className="Navbar">
       <div className="Navbar__iconContainer">
-        <a href="/">
+        <Link to="/">
           <div className="Navbar__icon">
-            <Asterisk />
+            <DiceD20 />
           </div>
-        </a>
+        </Link>
         <Popover content={`Toggle ${props.readerMode ? "Dev" : "Reader"} Mode`} placement="bottomLeft">
           <div className="Navbar__iconContainer" onClick={handleClick}>
             <div className="Navbar__icon">
@@ -37,21 +38,10 @@ export default function Navbar(props: NavbarMenuProps) {
 
       <div className="Navbar__routeInfo">{`${ path !== "" ? "["+path+"] - " : "" }Nathan Wade [papernathan@github.io]`}</div>
       <div className="Navbar__appIcons">
-        <a href="https://github.com/PaperNathan" target="_blank">
-          <div className="Navbar__icon">
-            <Github />
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/in/nathanwade-/" target="_blank">
-          <div className="Navbar__icon">
-            <Linkedin />
-          </div>
-        </a>
-        <a href="https://open.spotify.com/user/1295192359" target="_blank">
-          <div className="Navbar__icon">
-            <Spotify />
-          </div>
-        </a>
+        <Icon url="https://github.com/PaperNathan" icon={<Github />} />
+        <Icon url="https://codepen.io/PaperNathan" icon={<Codepen />} />
+        <Icon url="https://www.linkedin.com/in/nathanwade-/" icon={<Linkedin />} />
+        <Icon url="https://open.spotify.com/user/1295192359" icon={<Spotify />} />
       </div>
     </div>
   )
