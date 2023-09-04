@@ -2,7 +2,7 @@ import "./Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 import { Popover } from "antd";
 import Icon from "./Icon/Icon";
-import { Github, Linkedin, Spotify, Asterisk, Dev, Codepen } from "@ricons/fa";
+import { Github, Linkedin, Spotify, DiceD20, Dev, Codepen } from "@ricons/fa";
 import { ChromeReaderModeSharp } from "@ricons/material";
 import type { HTMLAttributes } from "react";
 
@@ -24,7 +24,7 @@ export default function Navbar(props: NavbarMenuProps) {
       <div className="Navbar__iconContainer">
         <Link to="/">
           <div className="Navbar__icon">
-            <Asterisk />
+            <DiceD20 />
           </div>
         </Link>
         <Popover content={`Toggle ${props.readerMode ? "Dev" : "Reader"} Mode`} placement="bottomLeft">
