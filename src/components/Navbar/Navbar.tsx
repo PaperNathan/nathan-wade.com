@@ -1,5 +1,5 @@
 import "./Navbar.scss";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Popover } from "antd";
 import Icon from "./Icon/Icon";
 import { Github, Linkedin, Spotify, Asterisk, Dev, Codepen } from "@ricons/fa";
@@ -22,11 +22,11 @@ export default function Navbar(props: NavbarMenuProps) {
   return (
     <div className="Navbar">
       <div className="Navbar__iconContainer">
-        <a href="/">
+        <Link to="/">
           <div className="Navbar__icon">
             <Asterisk />
           </div>
-        </a>
+        </Link>
         <Popover content={`Toggle ${props.readerMode ? "Dev" : "Reader"} Mode`} placement="bottomLeft">
           <div className="Navbar__iconContainer" onClick={handleClick}>
             <div className="Navbar__icon">
