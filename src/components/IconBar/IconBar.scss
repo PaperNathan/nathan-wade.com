@@ -3,6 +3,7 @@
   width: 100%;
   box-sizing: border-box;
 
+  padding-top: 0.6em;
   background-color: #333339;
   border-right: 1px solid #444;
 
@@ -14,10 +15,11 @@
     height: 40px;
     width: 100%;
 
+    margin-bottom: 0.5em;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.5em;
   
     & > * {
       opacity: 0.5;

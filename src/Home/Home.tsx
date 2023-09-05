@@ -1,5 +1,5 @@
 import './Home.scss';
-import { useReaderMode } from "@/App";
+import { useReaderMode } from "@/AppUtils";
 
 export default function Home() {
   const { readerMode } = useReaderMode();
