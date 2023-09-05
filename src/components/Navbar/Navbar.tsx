@@ -8,7 +8,7 @@ import type { HTMLAttributes } from "react";
 
 type NavbarMenuProps = HTMLAttributes<HTMLDivElement> & {
   readerMode: boolean,
-  setReaderMode: (arg0: boolean) => void,
+  updateReaderMode: () => void,
 }
 
 export default function Navbar(props: NavbarMenuProps) {
@@ -16,7 +16,7 @@ export default function Navbar(props: NavbarMenuProps) {
   const path = location.pathname.slice(1);
 
   const handleClick = () => {
-    props.setReaderMode(!props.readerMode);
+    props.updateReaderMode();
   }
 
   return (
