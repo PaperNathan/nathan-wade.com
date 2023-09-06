@@ -1,16 +1,5 @@
 // Do I want the layout styles to be localized to this file?
 
-// Currently, we are building a nonrelational grid system
-// for displaying sketches in `SketchesHome`.  Would it be
-// a better alternative to move this grid system into 
-// this file and then import it where needed?
-
-// Components that will likely use a nonrelational grid: 
-// - SketchesHome
-// - ArtHome
-// - ProjectsHome
-// - BlogHome??
-
 .Layout {
   &__content {
     width: 100%;
