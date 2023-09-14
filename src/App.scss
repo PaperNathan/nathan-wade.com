@@ -5,6 +5,7 @@
 }
 
 .App {
+  overflow: hidden;
   display: grid;
   grid-template-rows: 30px 1fr 30px;
   height: 100%;

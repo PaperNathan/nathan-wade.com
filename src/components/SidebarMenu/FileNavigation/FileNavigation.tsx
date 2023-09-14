@@ -11,7 +11,7 @@ export default function FileNavigation() {
     <div className="FileNavigation">
       <SidebarMenuLink>
         <PersonFilled className="SidebarMenuLink__icon" />
-        <Link to="/" className="SidebarMenuLink__link">nathan.yaml</Link>
+        <Link to="/" className="SidebarMenuLink__link">nathan.yml</Link>
       </SidebarMenuLink>
       <SidebarMenuLink>
         <InsertDriveFileOutlined className="SidebarMenuLink__icon" />

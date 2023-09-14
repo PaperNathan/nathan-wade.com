@@ -2,24 +2,24 @@
  * A String array of fun things to do.
  */
 export default [
-  "Writing a letter",
-  "Creating a compost pile",
-  "at a local thrift shop",
-  "Learning the periodic table",
-  "Drawing",
-  "Conquering my fears",
-  "Learning how to beatbox",
-  "Writing a poem",
-  "Learning how to juggle",
-  "Writing in my journal",
-  "Making homemade ice cream",
-  "Washing my car",
-  "Writing a short story",
-  "Making a couch fort",
-  "Learning how to play chess",
-  "Learning to write with my nondominant hand",
-  "Doing Yoga",
-  "Painting"
+  "writing a letter.",
+  "creating a compost pile.",
+  "at a local thrift shop.",
+  "learning the periodic table.",
+  "drawing.",
+  "conquering my fears.",
+  "learning how to beatbox.",
+  "writing a poem.",
+  "learning how to juggle.",
+  "writing in my journal.",
+  "making homemade ice cream.",
+  "washing my car.",
+  "writing a short story.",
+  "making a couch fort.",
+  "learning how to play chess.",
+  "learning to write with my nondominant hand.",
+  "doing yoga.",
+  "painting."
 ];
 
 
