@@ -3,6 +3,7 @@ import App from "@/App.tsx";
 import Error from "@/Error/Error.tsx";
 import Home from "@/Home/Home";
 import About from "@/About/About";
+import Stack from "@/Stack/Stack";
 
 export default function getRouter() {
   return createBrowserRouter([
@@ -18,6 +19,10 @@ export default function getRouter() {
         {
           path: "/about",
           element: <About />
+        },
+        {
+          path: "/stack",
+          element: <Stack />
         }
       ]
     },
