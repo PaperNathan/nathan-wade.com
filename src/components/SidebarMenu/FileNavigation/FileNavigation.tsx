@@ -1,5 +1,5 @@
 import "./FileNavigation.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { 
   InsertDriveFileOutlined, 
@@ -9,6 +9,9 @@ import {
 } from "@ricons/material";
 
 export default function FileNavigation() {
+  const location = useLocation();
+  const path = location.pathname.slice(1);
+
   const [toggleMenu, setToggleMenu] = useState("open");
 
   const toggleOpen = () => {
@@ -34,11 +37,11 @@ export default function FileNavigation() {
         NATHAN.WADE [CV]
       </div>
       <div className={`FileNavigation__files--${ toggleMenu }`}>
-        <div className="FileNavigation__fileLink">
+        <div className={`FileNavigation__fileLink${ path === "" ? "--active" : "" }`}>
           <PersonFilled className="FileNavigation__fileLink--icon" />
           <Link to="/" className="FileNavigation__fileLink--text">nathan.yml</Link>
         </div>
-        <div className="FileNavigation__fileLink">
+        <div className={`FileNavigation__fileLink${ path === "about" ? "--active" : "" }`}>
           <InsertDriveFileOutlined className="FileNavigation__fileLink--icon" />
           <Link to="/about" className="FileNavigation__fileLink--text">README.md</Link>
         </div>

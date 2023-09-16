@@ -36,7 +36,7 @@ export default function Navbar(props: NavbarMenuProps) {
         </Popover>
       </div>
 
-      <div className="Navbar__routeInfo">{`${ path !== "" ? "["+path+"] - " : "" }Nathan Wade [papernathan@github.io]`}</div>
+      <div className="Navbar__routeInfo">{`${ path === "" ? "" : "["+ path +"] - " }Nathan Wade [papernathan@github.io] - VSClone`}</div>
       <div className="Navbar__appIcons">
         <Icon url="https://github.com/PaperNathan" icon={<Github />} />
         <Icon url="https://codepen.io/PaperNathan" icon={<Codepen />} />
