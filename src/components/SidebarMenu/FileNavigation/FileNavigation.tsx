@@ -1,34 +1,26 @@
 import "./FileNavigation.scss";
-import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { 
-  InsertDriveFileOutlined, 
-  PersonFilled,
+import { useLocation } from 'react-router-dom';
+import type { Location } from "react-router-dom";
+
+import useFilenameBuilder from "./useFilenameBuilder";
+import {
   KeyboardArrowRightRound,
   KeyboardArrowDownRound
 } from "@ricons/material";
+import { menuOptions } from "./MenuOptions";
 
 export default function FileNavigation() {
-  const location = useLocation();
-  const path = location.pathname.slice(1);
-
   const [toggleMenu, setToggleMenu] = useState("open");
+  const { buildFileDisplay } = useFilenameBuilder();
+  const location: Location = useLocation();
 
-  const toggleOpen = () => {
-    if (toggleMenu === "open") {
-      setToggleMenu("closed");
-    } else {
-      setToggleMenu("open");
-    }
-  }
+  const toggleOpen = () => (toggleMenu === "open") ? setToggleMenu("closed") : setToggleMenu("open");
 
-  const getArrowPosition = () => {
-    if (toggleMenu === "open") {
-      return <KeyboardArrowDownRound className="FileNavigation__arrow" />
-    } else {
-      return <KeyboardArrowRightRound className="FileNavigation__arrow" />
-    }
-  }
+  const getArrowPosition = () => 
+    (toggleMenu === "open")
+      ? <KeyboardArrowDownRound className="FileNavigation__arrow" />
+      : <KeyboardArrowRightRound className="FileNavigation__arrow" />;
 
   return (
     <div className="FileNavigation">
@@ -37,14 +29,7 @@ export default function FileNavigation() {
         NATHAN.WADE [CV]
       </div>
       <div className={`FileNavigation__files--${ toggleMenu }`}>
-        <div className={`FileNavigation__fileLink${ path === "" ? "--active" : "" }`}>
-          <PersonFilled className="FileNavigation__fileLink--icon" />
-          <Link to="/" className="FileNavigation__fileLink--text">nathan.yml</Link>
-        </div>
-        <div className={`FileNavigation__fileLink${ path === "about" ? "--active" : "" }`}>
-          <InsertDriveFileOutlined className="FileNavigation__fileLink--icon" />
-          <Link to="/about" className="FileNavigation__fileLink--text">README.md</Link>
-        </div>
+        { menuOptions.map((option, key) => buildFileDisplay(location, key, option)) }
       </div>
     </div>
   )
