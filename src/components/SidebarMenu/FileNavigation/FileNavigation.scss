@@ -1,3 +1,67 @@
 .FileNavigation {
-  
+  width: 100%;
+
+  &__title {
+    font-size: 0.7em;
+    font-weight: 800;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__arrow {
+    height: 20px;
+    margin-right: 0.5em;
+
+    & > * {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &__files {
+    &--open {
+      display: block;
+    }
+
+    &--closed {
+      display: none;
+    }
+  }
+
+  &__fileLink {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      background-color: darkslategray;
+    }
+
+    &--icon {
+      width: 16px;
+      height: 16px;
+      margin-left: 1.5rem;
+      margin-right: 0.2rem;
+    }
+
+    &--text {
+      flex: 1;
+      color: grey;
+      font-weight: 400;
+      font-size: 14px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 }
