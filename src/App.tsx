@@ -25,7 +25,9 @@ export default function App() {
     const sidebarActiveContent: Record<IconType, ReactNode> = {
       fileNavigation: <FileNavigation />,
       option2: <Option2 />, 
-      option3: <Option3 />
+      option3: <Option3 />,
+      option4: <Option2 />,
+      option5: <Option3 />,
     };
     setShowSidebar(!!sidebarActiveContent[icon]);
     setSidebarContent(sidebarActiveContent[icon] ? sidebarActiveContent[icon] : null)
