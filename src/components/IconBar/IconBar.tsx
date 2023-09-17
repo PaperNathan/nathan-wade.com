@@ -1,14 +1,15 @@
 import "./IconBar.scss"
+
+import type { IconType } from '@/models/AppTypes';
+
 import { 
   ContentCopyRound, 
   SearchSharp, 
   ForumOutlined,
   SettingsSharp,
-  PersonFilled,
- } from "@ricons/material";
+} from "@ricons/material";
+import { Wrench } from "@ricons/fa";
 import { HTMLAttributes } from "react";
-
-import type { IconType } from '@/models/AppTypes';
 
 type IconBarProps = HTMLAttributes<HTMLDivElement> & {
   icon: string,
@@ -38,8 +39,8 @@ export default function IconBar(props: IconBarProps) {
         </div>
       </div>
       <div className="IconBar__bottom">
-        <div className={`IconBar__icon ${props.icon === "option4" ? "active" : ""}`} onClick={() => handleClick("option4")}>
-          <PersonFilled />
+        <div className={`IconBar__icon ${props.icon === "testPages" ? "active" : ""}`} onClick={() => handleClick("testPages")}>
+          <Wrench />
         </div>
         <div className={`IconBar__icon ${props.icon === "option5" ? "active" : ""}`} onClick={() => handleClick("option5")}>
           <SettingsSharp />

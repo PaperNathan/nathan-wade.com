@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom';
 import type { Location } from "react-router-dom";
 
+import type { FileDisplayOptions } from "@/components/MenuOptions/MenuOptions";
+
 import { 
   CodeSharp,
   InsertDriveFileOutlined,
   PersonFilled,
 } from "@ricons/material";
-
-export interface FileDisplayOptions {
-  fileType: string;
-  fileName: string;
-  linkPath: string;
-}
 
 const getPath = (location: Location): string => {
   return location.pathname.slice(1);

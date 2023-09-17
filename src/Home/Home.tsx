@@ -1,4 +1,5 @@
 import './Home.scss';
+
 import { useReaderMode } from "@/AppUtils";
 
 export default function Home() {

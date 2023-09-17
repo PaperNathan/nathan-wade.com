@@ -1,11 +1,12 @@
 import "@/main.scss";
-import './App.scss'
+import './App.scss';
 
 import type { IconType } from '@/models/AppTypes';
+import type { ReactNode } from 'react';
 
 import { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom";
-import type { ReactNode } from 'react';
+
 import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
 import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
@@ -14,19 +15,22 @@ import Option2 from "./components/SidebarMenu/Option2/Option2";
 import Option3 from "./components/SidebarMenu/Option3/Option3";
 import Infobar from "@/components/Infobar/Infobar";
 
+import { fileSystemMenuOptions } from "@/components/MenuOptions/FileNavigationMenuOptions";
+import { testPagesMenuOptions } from "./components/MenuOptions/TestPagesMenuOptions";
+
 export default function App() {
   const [icon, setIcon] = useState<IconType>("fileNavigation");
   const [showSidebar, setShowSidebar] = useState(true);
 
-  const [sidebarContent, setSidebarContent] = useState<ReactNode>(<FileNavigation />)
+  const [sidebarContent, setSidebarContent] = useState<ReactNode>(<FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />)
   const [readerMode, setReaderMode] = useState(false);
 
   useEffect(() => {
     const sidebarActiveContent: Record<IconType, ReactNode> = {
-      fileNavigation: <FileNavigation />,
+      fileNavigation: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
       option2: <Option2 />, 
       option3: <Option3 />,
-      option4: <Option2 />,
+      testPages: <FileNavigation title="TEST PAGES" menuOptions={ testPagesMenuOptions } />,
       option5: <Option3 />,
     };
     setShowSidebar(!!sidebarActiveContent[icon]);
