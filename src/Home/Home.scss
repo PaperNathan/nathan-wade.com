@@ -1,5 +1,38 @@
+@use "src/shared/styles/colors" as *;
+
 .Home {
-  h1 {
-    color: salmon;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__display {
+    margin: 0;
+    font-size: 5em;
+    color: white;
+    line-height: 1;
+    text-align: center;
+  }
+
+  &__subtext {
+    font-size: 1.2em;
+    letter-spacing: 4px;
+    margin-bottom: 0.2em;
+    color: $green-2;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    margin-bottom: 1em;
+
+    p {
+      color: $grey70;
+    }
+  }
+
+  &__contact {
+    display: flex;
   }
 }

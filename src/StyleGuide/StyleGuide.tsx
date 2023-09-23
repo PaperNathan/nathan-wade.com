@@ -1,10 +1,9 @@
 import "@/shared/styles/typography.scss";
 import "./StyleGuide.scss";
+import Image from "@/components/Image/Image";
 
 export default function StyleGuide() {
   const colors = ["#201127", "#201433", "#1b1e34", "#355d68", "#6aaf9d", "#94c5ac", "#ec9a6d", "#ffc27a", "#ffeb99", "#a73169", "#c24b6e", "#d9626b"]
-
-  const generateNElements = (n: number, output: JSX.Element): JSX.Element[] => Array(n).fill(0).map(_ => output);
 
   return (
     <div className="StyleGuide">
@@ -44,18 +43,20 @@ export default function StyleGuide() {
           <h1>List Styles</h1>
           <h2>Unordered List</h2>
           <ul>
-            { generateNElements(3, <li>Unordered list item</li>) }
+            { Array.from({ length:3 }, (_, i) => <li key={ `first_ul_${i}` }>Unordered List Item</li>) }
             <ul>
-            { generateNElements(3, <li>Unordered list item</li>) }
+              { Array.from({ length:3 }, (_, i) => <li key={ `second_ul_${i}` }>Unordered List Item</li>) }
             </ul>
           </ul>
+  
           <h2>Ordered List</h2>
           <ol>
-            { generateNElements(3, <li>Ordered list item</li>) }
+            { Array.from({ length:3 }, (_, i) => <li key={ `first_ol_${i}` }>Ordered List Item</li>) }
             <ol type="a">
-              { generateNElements(3, <li>Ordered list item</li>) }
+              { Array.from({ length:3 }, (_, i) => <li key={ `second_ol_${i}` }>Ordered List Item</li>) }
             </ol>
           </ol>
+  
           <blockquote>Blockquote</blockquote>
           <pre>Preformatted text</pre>    
         </div>
@@ -65,6 +66,10 @@ export default function StyleGuide() {
           <div className="StyleGuide__colors">
             { colors.map(c => <div className="StyleGuide__color" style={{ backgroundColor: `${c}` }}>{c}</div>) }
           </div>
+
+          <h1>Images</h1>
+          <Image alt="Placeholder" />
+          <Image alt="Placeholder" caption="Image with caption" />
         </div> 
       </div> 
     </div>

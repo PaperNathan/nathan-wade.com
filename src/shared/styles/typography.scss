@@ -1,11 +1,16 @@
-@use "colors" as *;
+@use "@/shared/styles/colors.scss" as *;
 
 // Typography specific style variants should be prefaced with "type"
 .type {
   &__display {
     font-size: 15em;
-    line-height: 0.1;
+    line-height: 1;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.4em;
+  margin-bottom: 0.2em;
 }
 
 h1 {

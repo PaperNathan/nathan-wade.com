@@ -1,12 +1,12 @@
 import "@/main.scss";
-import './App.scss';
+import './Dev.scss';
 
-import type { IconType, ViewingMode } from '@/models/AppTypes';
+import type { IconType } from '@/models/AppTypes';
 import type { ReactNode } from 'react';
+import type { ViewingMode } from "@/models/AppTypes";
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Outlet } from "react-router-dom";
-import { Modal } from "antd";
 
 import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
@@ -20,12 +20,10 @@ import { fileSystemMenuOptions } from "@/components/MenuOptions/FileNavigationMe
 import { testPagesMenuOptions } from "@/components/MenuOptions/TestPagesMenuOptions";
 
 export default function App() {
-  const [icon, setIcon] = useState<IconType>("closed");
+  const [icon, setIcon] = useState<IconType>("fileNavigation");
   const [showSidebar, setShowSidebar] = useState(false);
   const [sidebarContent, setSidebarContent] = useState<ReactNode>(<FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />)
   const [viewingMode, setViewingMode] = useState<ViewingMode>("reader");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const isMounted = useRef(false);
 
@@ -46,19 +44,19 @@ export default function App() {
     }
   }, [icon]);
 
-  const handleKeyPress = useCallback((e: any) => {
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
-      showModal();
-    }
-  }, []);
+    const handleKeyPress = useCallback((e: any) => {
+      if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+        console.log("control + enter clicked");
+      }
+    }, []);
   
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyPress);
-    };
-  }, [handleKeyPress]);
+    useEffect(() => {
+      document.addEventListener('keydown', handleKeyPress);
+  
+      return () => {
+        document.removeEventListener('keydown', handleKeyPress);
+      };
+    }, [handleKeyPress]);
 
   const updateIcon = (name: IconType) => {
     setIcon(name);
@@ -68,39 +66,21 @@ export default function App() {
     setViewingMode(() => viewingMode === "reader" ? "dev" : "reader");
   }
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="App">
+    <div className="DevView">
       <Navbar viewingMode={ viewingMode } updateViewingMode={ updateViewingMode } />
-      <div className="App__layout">
+      <div className="DevView__layout">
         <IconBar icon={ icon } updateIcon={ updateIcon } />
-
         <SidebarMenu show={ showSidebar }>
           { sidebarContent }
         </SidebarMenu>
 
-        <div className="App__main" style={ showSidebar ? {} : { gridColumnEnd: "span 2" } }>
+        <div className="DevView__main" style={ showSidebar ? {} : { gridColumnEnd: "span 2" } }>
           <Outlet context={{ viewingMode }} />
         </div>
 
       </div>  
-      <Infobar />
-      <Modal title="Search..." open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      <Infobar />    
     </div>
   )
 }
