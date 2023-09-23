@@ -1,14 +1,16 @@
 import "./Navbar.scss";
-import { Link, useLocation } from "react-router-dom";
-import { Popover } from "antd";
-import Icon from "./Icon/Icon";
-import { Github, Linkedin, Spotify, DiceD20, Dev, Codepen } from "@ricons/fa";
-import { ChromeReaderModeSharp } from "@ricons/material";
+import type { ViewingMode } from "@/models/AppTypes";
 import type { HTMLAttributes } from "react";
 
+import { Link, useLocation } from "react-router-dom";
+import { Popover } from "antd";
+import Icon from "@/components/Icon/Icon";
+import { Github, Linkedin, Spotify, DiceD20, Dev, Codepen } from "@ricons/fa";
+import { ChromeReaderModeSharp } from "@ricons/material";
+
 type NavbarMenuProps = HTMLAttributes<HTMLDivElement> & {
-  readerMode: boolean,
-  updateReaderMode: () => void,
+  viewingMode: ViewingMode,
+  updateViewingMode: () => void,
 }
 
 export default function Navbar(props: NavbarMenuProps) {
@@ -16,7 +18,8 @@ export default function Navbar(props: NavbarMenuProps) {
   const path = location.pathname.slice(1);
 
   const handleClick = () => {
-    props.updateReaderMode();
+    props.updateViewingMode();
+    
   }
 
   return (
@@ -27,10 +30,10 @@ export default function Navbar(props: NavbarMenuProps) {
             <DiceD20 />
           </div>
         </Link>
-        <Popover content={`Toggle ${props.readerMode ? "Dev" : "Reader"} Mode`} placement="bottomLeft">
+        <Popover content={`Toggle ${props.viewingMode === "reader" ? "Reader" : "Dev"} Mode`} placement="bottomLeft">
           <div className="Navbar__iconContainer" onClick={handleClick}>
             <div className="Navbar__icon">
-              { props.readerMode ? <Dev /> : <ChromeReaderModeSharp /> }
+              { props.viewingMode === "reader" ? <ChromeReaderModeSharp /> : <Dev /> }
             </div>
           </div>
         </Popover>

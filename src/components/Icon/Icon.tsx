@@ -1,3 +1,4 @@
+import "./Icon.scss";
 import { HTMLAttributes, ReactNode  } from "react";
 
 type IconProps = HTMLAttributes<HTMLDivElement> & {
@@ -7,10 +8,12 @@ type IconProps = HTMLAttributes<HTMLDivElement> & {
 
 export default function Icon(props: IconProps) {
   return (
-    <a href={ props.url } target="_blank">
-      <div className="Navbar__icon">
-        { props.icon }
-      </div>
-    </a>
+    <div className="Icon">
+      <a href={ props.url } target="_blank">
+        <div className="Icon__icon">
+          { props.icon }
+        </div>
+      </a>
+    </div>
   )
 }

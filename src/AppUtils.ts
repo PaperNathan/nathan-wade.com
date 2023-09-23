@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
-type ContextType = { readerMode: boolean };
+import type { ViewingMode } from "@/models/AppTypes";
 
-export function useReaderMode() {
-  return useOutletContext<ContextType>();
+export function useViewingMode() {
+  return useOutletContext<ViewingMode>();
 }

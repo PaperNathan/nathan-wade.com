@@ -19,7 +19,7 @@ type IconBarProps = HTMLAttributes<HTMLDivElement> & {
 export default function IconBar(props: IconBarProps) {
   const handleClick = (name: IconType) => {
     if (name === props.icon) {
-      props.updateIcon("" as IconType);
+      props.updateIcon("closed");
     } else {
       props.updateIcon(name);
     }
