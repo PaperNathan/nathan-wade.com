@@ -2,15 +2,21 @@ import "./FileNavigation.scss";
 import { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import type { Location } from "react-router-dom";
+import type { HTMLAttributes } from "react";
+import type { FileDisplayOptions } from "@/components/MenuOptions/MenuOptions";
 
 import useFilenameBuilder from "./useFilenameBuilder";
 import {
   KeyboardArrowRightRound,
   KeyboardArrowDownRound
 } from "@ricons/material";
-import { menuOptions } from "./MenuOptions";
 
-export default function FileNavigation() {
+type FileNavigationProps = HTMLAttributes<HTMLDivElement> & {
+  title: string,
+  menuOptions: FileDisplayOptions[],
+}
+
+export default function FileNavigation(props: FileNavigationProps) {
   const [toggleMenu, setToggleMenu] = useState("open");
   const { buildFileDisplay } = useFilenameBuilder();
   const location: Location = useLocation();
@@ -26,10 +32,10 @@ export default function FileNavigation() {
     <div className="FileNavigation">
       <div className="FileNavigation__title" onClick={ toggleOpen }>
         { getArrowPosition() }
-        NATHAN.WADE [CV]
+        { props.title }
       </div>
       <div className={`FileNavigation__files--${ toggleMenu }`}>
-        { menuOptions.map((option, key) => buildFileDisplay(location, key, option)) }
+        { props.menuOptions.map((option, key) => buildFileDisplay(location, key, option)) }
       </div>
     </div>
   )

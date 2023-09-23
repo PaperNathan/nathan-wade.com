@@ -1,0 +1,30 @@
+.StyleGuide {
+  .StyleGuide__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .StyleGuide__left {
+    padding: 0 20px;
+    border-right: 1px dashed #ccc;
+  }
+
+  .StyleGuide__right {
+    padding: 0 20px;
+  }
+
+  .StyleGuide__colors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+  }
+
+  .StyleGuide__color {
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
