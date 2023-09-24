@@ -6,7 +6,6 @@ import {
   ContentCopyRound, 
   SearchSharp, 
   ForumOutlined,
-  SettingsSharp,
 } from "@ricons/material";
 import { Wrench, Inbox } from "@ricons/fa";
 import { HTMLAttributes } from "react";
