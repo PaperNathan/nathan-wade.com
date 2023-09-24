@@ -1,10 +1,10 @@
 import "@/main.scss";
 import './App.scss';
 
-import type { IconType, ViewingMode } from '@/models/AppTypes';
+import type { IconType, AppState } from '@/models/AppTypes';
 import type { ReactNode } from 'react';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef, useReducer } from 'react';
 import { Outlet } from "react-router-dom";
 import { Input, Modal } from "antd";
 
@@ -18,13 +18,18 @@ import Infobar from "@/components/Infobar/Infobar";
 
 import { fileSystemMenuOptions } from "@/components/MenuOptions/FileNavigationMenuOptions";
 import { testPagesMenuOptions } from "@/components/MenuOptions/TestPagesMenuOptions";
+import { AppReducer } from "@/store/AppStore";
+
+const initialState: AppState = {
+  viewingMode: "reader",
+  icon: "closed",
+  showSidebar: false,
+  sidebarContent: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
+  showModal: false,
+};
 
 export default function App() {
-  const [icon, setIcon] = useState<IconType>("closed");
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [sidebarContent, setSidebarContent] = useState<ReactNode>(<FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />)
-  const [viewingMode, setViewingMode] = useState<ViewingMode>("reader");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
   const isMounted = useRef(false);
 
@@ -38,30 +43,34 @@ export default function App() {
         option5: <Option3 />,
         closed: null
       };
-      setShowSidebar(!!sidebarActiveContent[icon]);
-      setSidebarContent(sidebarActiveContent[icon] ? sidebarActiveContent[icon] : null)
+      dispatch({ type: "TOGGLE_SIDEBAR", payload: !!sidebarActiveContent[state.icon] });
+      dispatch({ type: "SET_SIDEBAR_CONTENT", payload: sidebarActiveContent[state.icon] ? sidebarActiveContent[state.icon] : undefined })
     } else {
       isMounted.current = true;
     }
-  }, [icon]);
+  }, [state.icon]);
 
   const handleKeyPress = useCallback((e: any) => {
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
-      showModal();
+      if (state.showModal) {
+        dispatch({ type: "TOGGLE_MODAL", payload: false });
+      } else {
+        dispatch({ type: "TOGGLE_MODAL", payload: true });
+      }
     }
 
     if (e.key === "b" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
-      if (icon === "closed") {
-        setIcon("fileNavigation");
-        setShowSidebar(true);
+      if (state.icon === "closed") {
+        dispatch({ type: "SET_ICON", payload: "fileNavigation" });
+        dispatch({ type: "TOGGLE_SIDEBAR", payload: true });
       } else {
-        setIcon("closed");
-        setShowSidebar(false);
+        dispatch({ type: "SET_ICON", payload: "closed" });
+        dispatch({ type: "TOGGLE_SIDEBAR", payload: false });
       }
     }
-  }, [icon]);
+  }, [state]);
   
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
@@ -71,43 +80,41 @@ export default function App() {
     };
   }, [handleKeyPress]);
 
+  // State Mutations
   const updateIcon = (name: IconType) => {
-    setIcon(name);
+    dispatch({ type: "SET_ICON", payload: name });
   }
 
   const updateViewingMode = () => {
-    setViewingMode(() => viewingMode === "reader" ? "dev" : "reader");
+    dispatch({ type: "SET_VIEWING_MODE", payload: state.viewingMode === "reader" ? "dev" : "reader" });
   }
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
+  // Modal Functions
   const handleOk = () => {
-    setIsModalOpen(false);
+    dispatch({ type: "TOGGLE_MODAL", payload: false });
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    dispatch({ type: "TOGGLE_MODAL", payload: false });
   };
 
   return (
     <div className="App">
-      <Navbar viewingMode={ viewingMode } updateViewingMode={ updateViewingMode } />
+      <Navbar viewingMode={ state.viewingMode } updateViewingMode={ updateViewingMode } />
       <div className="App__layout">
-        <IconBar icon={ icon } updateIcon={ updateIcon } />
+        <IconBar icon={state.icon } updateIcon={ updateIcon } />
 
-        <SidebarMenu show={ showSidebar }>
-          { sidebarContent }
+        <SidebarMenu show={ state.showSidebar }>
+          { state.sidebarContent }
         </SidebarMenu>
 
-        <div className="App__main" style={ showSidebar ? {} : { gridColumnEnd: "span 2" } }>
-          <Outlet context={{ viewingMode }} />
+        <div className="App__main" style={ state.showSidebar ? {} : { gridColumnEnd: "span 2" } }>
+          <Outlet context={ state.viewingMode } />
         </div>
 
       </div>  
       <Infobar />
-      <Modal title="Search..." open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Search..." open={ state.showModal } onOk={ handleOk } onCancel={ handleCancel }>
         <Input placeholder="Search..." />
       </Modal>
     </div>
