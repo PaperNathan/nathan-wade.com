@@ -7,4 +7,9 @@ export const testPagesMenuOptions: FileDisplayOptions[] = [
     fileName: "style-guide",
     linkPath: "/style-guide"
   },
+  {
+    fileType: "md",
+    fileName: "keyboard-shortcuts",
+    linkPath: "/shortcuts"
+  }
 ]

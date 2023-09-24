@@ -5,6 +5,7 @@ import Home from "@/Home/Home";
 import About from "@/About/About";
 import Stack from "@/Stack/Stack";
 import StyleGuide from "@/StyleGuide/StyleGuide";
+import Shortcuts from "@/Shortcuts/Shortcuts";
 
 import DevView from "@/DevView/DevView";
 
@@ -30,6 +31,10 @@ export default function getRouter() {
         {
           path: "/style-guide",
           element: <StyleGuide />
+        },
+        {
+          path: "/shortcuts",
+          element: <Shortcuts />
         }
       ]
     },

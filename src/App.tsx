@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Outlet } from "react-router-dom";
-import { Modal } from "antd";
+import { Input, Modal } from "antd";
 
 import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
@@ -25,7 +25,6 @@ export default function App() {
   const [sidebarContent, setSidebarContent] = useState<ReactNode>(<FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />)
   const [viewingMode, setViewingMode] = useState<ViewingMode>("reader");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
 
   const isMounted = useRef(false);
 
@@ -47,10 +46,22 @@ export default function App() {
   }, [icon]);
 
   const handleKeyPress = useCallback((e: any) => {
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+    if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
       showModal();
     }
-  }, []);
+
+    if (e.key === "b" && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      if (icon === "closed") {
+        setIcon("fileNavigation");
+        setShowSidebar(true);
+      } else {
+        setIcon("closed");
+        setShowSidebar(false);
+      }
+    }
+  }, [icon]);
   
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress);
@@ -97,9 +108,7 @@ export default function App() {
       </div>  
       <Infobar />
       <Modal title="Search..." open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Input placeholder="Search..." />
       </Modal>
     </div>
   )
