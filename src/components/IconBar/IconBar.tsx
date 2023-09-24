@@ -6,9 +6,8 @@ import {
   ContentCopyRound, 
   SearchSharp, 
   ForumOutlined,
-  SettingsSharp,
 } from "@ricons/material";
-import { Wrench } from "@ricons/fa";
+import { Wrench, Inbox } from "@ricons/fa";
 import { HTMLAttributes } from "react";
 
 type IconBarProps = HTMLAttributes<HTMLDivElement> & {
@@ -43,7 +42,7 @@ export default function IconBar(props: IconBarProps) {
           <Wrench />
         </div>
         <div className={`IconBar__icon ${props.icon === "option5" ? "active" : ""}`} onClick={() => handleClick("option5")}>
-          <SettingsSharp />
+          <Inbox />
         </div>
       </div>
     </div>
