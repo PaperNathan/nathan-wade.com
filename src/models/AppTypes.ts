@@ -4,10 +4,12 @@ export type IconType = "fileNavigation" | "option2" | "option3" | "testPages" | 
 
 export type ViewingMode = "reader" | "dev";
 
+export type OS = "mac" | "other";
+
 export interface AppState {
   viewingMode: ViewingMode;
   icon: IconType;
   showSidebar: boolean;
   sidebarContent: ReactNode | undefined;
-  showModal: boolean;
+  showCommandPalette: boolean;
 }

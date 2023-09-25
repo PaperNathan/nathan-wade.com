@@ -1,6 +1,5 @@
 import "@/shared/styles/typography.scss";
-
-type OS = "mac" | "other";
+import type { OS } from "@/models/AppTypes";
 
 export default function Shortcuts() {
   const os: OS = navigator.userAgent.indexOf("Mac") !== -1 ? "mac" : "other";

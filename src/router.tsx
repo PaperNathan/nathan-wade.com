@@ -7,8 +7,6 @@ import Stack from "@/Stack/Stack";
 import StyleGuide from "@/StyleGuide/StyleGuide";
 import Shortcuts from "@/Shortcuts/Shortcuts";
 
-import DevView from "@/DevView/DevView";
-
 export default function getRouter() {
   return createBrowserRouter([
     {
@@ -37,12 +35,6 @@ export default function getRouter() {
           element: <Shortcuts />
         }
       ]
-    },
-    {
-      path: "/dev",
-      element: <DevView />,
-      errorElement: <Error />,
-      children: []
     }
   ]);
 }

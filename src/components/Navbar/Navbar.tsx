@@ -2,26 +2,28 @@ import "./Navbar.scss";
 import type { ViewingMode } from "@/models/AppTypes";
 import type { HTMLAttributes } from "react";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Popover } from "antd";
-import Icon from "@/components/Icon/Icon";
 import { Github, Linkedin, Spotify, DiceD20, Dev, Codepen } from "@ricons/fa";
 import { ChromeReaderModeSharp } from "@ricons/material";
 
+import Icon from "@/components/Icon/Icon";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import CommandPalette from "@/components/SearchBar/CommandPalette";
+
 type NavbarMenuProps = HTMLAttributes<HTMLDivElement> & {
   viewingMode: ViewingMode,
+  showCommandPalette: boolean,
   updateViewingMode: () => void,
+  toggleCommandPalette: () => void,
 }
 
-export default function Navbar(props: NavbarMenuProps) {
-  const location = useLocation();
-  const path = location.pathname.slice(1);
-
-  const handleClick = () => {
-    props.updateViewingMode();
-    
-  }
-
+export default function Navbar({ 
+  viewingMode, 
+  showCommandPalette, 
+  updateViewingMode, 
+  toggleCommandPalette 
+}: NavbarMenuProps) {
   return (
     <div className="Navbar">
       <div className="Navbar__iconContainer">
@@ -30,16 +32,19 @@ export default function Navbar(props: NavbarMenuProps) {
             <DiceD20 />
           </div>
         </Link>
-        <Popover content={`Toggle ${props.viewingMode === "reader" ? "Reader" : "Dev"} Mode`} placement="bottomLeft">
-          <div className="Navbar__iconContainer" onClick={handleClick}>
+        <Popover content={`Toggle ${viewingMode === "reader" ? "Reader" : "Dev"} Mode`} placement="bottomLeft">
+          <div className="Navbar__iconContainer" onClick={ updateViewingMode }>
             <div className="Navbar__icon">
-              { props.viewingMode === "reader" ? <ChromeReaderModeSharp /> : <Dev /> }
+              { viewingMode === "reader" ? <ChromeReaderModeSharp /> : <Dev /> }
             </div>
           </div>
         </Popover>
       </div>
 
-      <div className="Navbar__routeInfo">{`${ path === "" ? "" : "["+ path +"] - " }Nathan Wade [papernathan@github.io] - VSClone`}</div>
+      { showCommandPalette 
+        ? <CommandPalette toggleCommandPalette={ toggleCommandPalette } /> 
+        : <SearchBar toggleCommandPalette={ toggleCommandPalette } /> }
+      
       <div className="Navbar__appIcons">
         <Icon url="https://github.com/PaperNathan" icon={<Github />} />
         <Icon url="https://codepen.io/PaperNathan" icon={<Codepen />} />
