@@ -1,4 +1,8 @@
 .StyleGuide {
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+
   .StyleGuide__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -1,4 +1,5 @@
 import "@/shared/styles/typography.scss";
+import './Shortcuts.scss';
 import type { OS } from "@/models/AppTypes";
 
 export default function Shortcuts() {
@@ -6,7 +7,6 @@ export default function Shortcuts() {
   
   return (
     <div className="Shortcuts">
-
       <h1>Keyboard Shortcuts</h1>
       <p>
         <span className="type__code">{os === "mac" ? "Cmd" : "Ctrl"} + K</span> - Opens command palette
