@@ -1,7 +1,7 @@
 import type { AppState } from '@/models/AppTypes';
 
-export type AppActionType = 'SET_VIEWING_MODE' 
-  | 'SET_ICON' 
+export type AppActionType = 
+  'SET_ICON' 
   | 'SET_SIDEBAR' 
   | 'TOGGLE_SIDEBAR' 
   | 'SET_SIDEBAR_CONTENT' 
@@ -15,9 +15,6 @@ interface AppAction {
 
 export function AppReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
-    case "SET_VIEWING_MODE":
-      return { ...state, viewingMode: action.payload };
-
     case "SET_ICON":
       return { ...state, icon: action.payload };
 
