@@ -8,15 +8,25 @@ import FunThings from "./FunThings";
 type Position = Record<"longitude" | "latitude", string>;
 
 type ISSData = {
+  altitude: number;
+  daynum: number;
+  footprint: number;
+  id: number; 
+  latitude: number;
+  longitude: number;
+  name: string;
+  solar_lat: number;
+  solar_lon: number;
   timestamp: number;
-  message: string;
-  iss_position: Position;
+  units: string;
+  velocity: number;
+  visibility: string;
 } | undefined;
 
 export default function Infobar() {
   const [data, setData] = useState<ISSData>(undefined);
   const [dms, setDms] = useState<string>("");
-  
+
   const DMSHelper = (pos: string, direction: "lng" | "lat"): string => {
     const dec = (0 | Number(pos));
     const min = (0 | ((Number(pos) - dec) * 60));
@@ -29,19 +39,23 @@ export default function Infobar() {
   useEffect(() => {
     const positionToDMS = (position: Position) => {
       const { latitude, longitude } = position;
-  
+
       const lng = DMSHelper(longitude, "lng");
       const lat = DMSHelper(latitude, "lat");
       return `${lat}, ${lng}`;
     }
 
-    fetch('http://api.open-notify.org/iss-now.json')
+    fetch('https://api.wheretheiss.at/v1/satellites/25544')
       .then(response => response.json())
       .then(json => {
         setData(json);
-        setDms(positionToDMS(json.iss_position));
+        const position: Position = { latitude: json.latitude, longitude: json.longitude };
+        setDms(positionToDMS(position));
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        setDms("API Error");
+        console.error(error);
+      });
   }, []);
 
   const getFunThing = () => {
@@ -59,18 +73,18 @@ export default function Infobar() {
       </Link>
       <div className="Infobar__personal">
         <div className="Infobar__activity">
-          
+
           <div className="Infobar__text">
-            Currently { getFunThing() }
+            Currently {getFunThing()}
           </div>
         </div>
         <div className="Infobar__iss">
-          <Popover content="ISS Current Position" placement="top"> 
+          <Popover content="ISS Current Position" placement="top">
             <div className="Infobar__icon">
               <Rocket />
             </div>
           </Popover>
-          { data ? dms : "Loading..." }
+          {data ? dms : "Loading..."}
         </div>
 
       </div>
