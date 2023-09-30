@@ -4,12 +4,7 @@ import { Github, Linkedin, Spotify, Codepen } from "@ricons/fa";
 import Icon from "@/components/Icon/Icon";
 import Image from "@/components/Image/Image";
 
-import { useViewingMode } from "@/AppUtils";
-
 export default function Home() {
-  const viewingMode = useViewingMode();
-  console.log(viewingMode === "reader" ? "Reader Mode Enabled" : "Reader Mode Not Enabled");
-
   const imgStyle = { borderRadius: "100%"}
 
   return (

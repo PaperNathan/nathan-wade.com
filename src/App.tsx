@@ -20,7 +20,6 @@ import { testPagesMenuOptions } from "@/components/MenuOptions/TestPagesMenuOpti
 import { AppReducer } from "@/store/AppStore";
 
 const initialState: AppState = {
-  viewingMode: "reader",
   icon: "closed",
   showSidebar: false,
   sidebarContent: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
@@ -90,16 +89,10 @@ export default function App() {
     dispatch({ type: "SET_ICON", payload: name });
   }
 
-  const updateViewingMode = () => {
-    dispatch({ type: "SET_VIEWING_MODE", payload: state.viewingMode === "reader" ? "dev" : "reader" });
-  }
-
   return (
     <div className="App">
       <Navbar 
-        viewingMode={ state.viewingMode } 
         showCommandPalette={ state.showCommandPalette }
-        updateViewingMode={ updateViewingMode } 
         toggleCommandPalette={ () => dispatch({ type: "TOGGLE_COMMAND_PALETTE" }) }
       />
       <div className="App__layout">
@@ -110,7 +103,7 @@ export default function App() {
         </SidebarMenu>
 
         <div className="App__main" style={ state.showSidebar ? {} : { gridColumnEnd: "span 2" } }>
-          <Outlet context={ state.viewingMode } />
+          <Outlet />
         </div>
 
       </div>  
