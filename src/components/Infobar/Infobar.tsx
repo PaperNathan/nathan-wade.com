@@ -25,6 +25,7 @@ type ISSData = {
 
 export default function Infobar() {
   const [data, setData] = useState<ISSData>(undefined);
+  const [funThing] = useState<string>(FunThings[Math.floor(Math.random() * FunThings.length)]);
   const [dms, setDms] = useState<string>("");
 
   const DMSHelper = (pos: string, direction: "lng" | "lat"): string => {
@@ -58,12 +59,6 @@ export default function Infobar() {
       });
   }, []);
 
-  const getFunThing = () => {
-    return FunThings[Math.floor(Math.random() * FunThings.length)];
-  }
-
-
-
   return (
     <div className="Infobar">
       <Link to="/stack">
@@ -75,7 +70,7 @@ export default function Infobar() {
         <div className="Infobar__activity">
 
           <div className="Infobar__text">
-            Currently {getFunThing()}
+            Currently { funThing }
           </div>
         </div>
         <div className="Infobar__iss">
