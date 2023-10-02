@@ -7,6 +7,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useCallback, useRef, useReducer } from 'react';
 import { Outlet } from "react-router-dom";
 
+import Resume from "@/components/Resume/Resume";
 import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
 import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
@@ -24,13 +25,25 @@ const initialState: AppState = {
   showSidebar: false,
   sidebarContent: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
   showCommandPalette: false,
+  showResume: false,
 };
 
 export default function App() {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const isMounted = useRef(false);
+  // on mount
+  useEffect(() => {
+    window.addEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
+    window.addEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
 
+    return () => {
+      window.removeEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
+      window.removeEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
+    }
+  }, []);
+
+  // Effect to run on icon update but not on mount
+  const isMounted = useRef(false);
   useEffect(() => {
     if (isMounted.current) {
       const sidebarActiveContent: Record<IconType, ReactNode> = {
@@ -90,24 +103,29 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <Navbar 
-        showCommandPalette={ state.showCommandPalette }
-        toggleCommandPalette={ () => dispatch({ type: "TOGGLE_COMMAND_PALETTE" }) }
-      />
-      <div className="App__layout">
-        <IconBar icon={state.icon } updateIcon={ updateIcon } />
+    <>
+      { state.showResume ? 
+        <Resume /> :
+        <div className="App">
+          <Navbar 
+            showCommandPalette={ state.showCommandPalette }
+            toggleCommandPalette={ () => dispatch({ type: "TOGGLE_COMMAND_PALETTE" }) }
+          />
+          <div className="App__layout">
+            <IconBar icon={ state.icon } updateIcon={ updateIcon } />
 
-        <SidebarMenu show={ state.showSidebar }>
-          { state.sidebarContent }
-        </SidebarMenu>
+            <SidebarMenu show={ state.showSidebar }>
+              { state.sidebarContent }
+            </SidebarMenu>
 
-        <div className="App__main" style={ state.showSidebar ? {} : { gridColumnEnd: "span 2" } }>
-          <Outlet />
+            <div className="App__main" style={ state.showSidebar ? {} : { gridColumnEnd: "span 2" } }>
+              <Outlet />
+            </div>
+
+          </div>  
+          <Infobar />
         </div>
-
-      </div>  
-      <Infobar />
-    </div>
+      }
+    </>
   )
 }

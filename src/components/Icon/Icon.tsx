@@ -1,5 +1,5 @@
 import "./Icon.scss";
-import { HTMLAttributes, ReactNode  } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 type IconProps = HTMLAttributes<HTMLDivElement> & {
   url: string,
