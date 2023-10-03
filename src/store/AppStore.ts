@@ -6,7 +6,8 @@ export type AppActionType =
   | 'TOGGLE_SIDEBAR' 
   | 'SET_SIDEBAR_CONTENT' 
   | "TOGGLE_COMMAND_PALETTE"
-  | "SET_COMMAND_PALETTE";
+  | "SET_COMMAND_PALETTE"
+  | "TOGGLE_RESUME";
 
 interface AppAction {
   type: AppActionType;
@@ -36,6 +37,11 @@ export function AppReducer(state: AppState, action: AppAction): AppState {
 
     case "SET_COMMAND_PALETTE":
       return { ...state, showCommandPalette: action.payload };
+
+    case "TOGGLE_RESUME": {
+      const toggle = !state.showResume;
+      return { ...state, showResume: toggle };
+    }
 
     default:
       throw new Error("App.tsx - Invalid action type on reducer.");

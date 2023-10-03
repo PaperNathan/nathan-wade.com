@@ -9,4 +9,5 @@ export interface AppState {
   showSidebar: boolean;
   sidebarContent: ReactNode | undefined;
   showCommandPalette: boolean;
+  showResume: boolean;
 }
