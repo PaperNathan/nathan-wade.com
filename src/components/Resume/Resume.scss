@@ -1,0 +1,138 @@
+@use "@/shared/styles/colors.scss" as *;
+
+.Resume {
+  width: 600px;
+  font-size: 12px;
+  margin: 0 auto;
+  
+  // Introduction
+  &__top {
+    width: 600px;
+    margin: 20px auto 10px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__name {
+    line-height: 1.2;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  &__jobTitle {
+    color: $grey60; 
+    letter-spacing: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  // Layout
+  &__columnContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  &__section {
+    width: 100%;
+    margin: 0 0 20px;
+
+  }
+
+  &__header {
+    margin: 0 0 8px;
+    border-bottom: 1px solid black;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+
+  // Contact
+  &__email, &__location {
+    span {
+      margin-right: 1rem;
+      color: $grey60;
+      font-weight: 600;
+    }
+  }
+
+  // Lists
+  &__list {
+    margin: 0 0 10px;
+    padding: 0;
+    list-style: none;
+
+    &--name {
+      margin: 0 0 5px;
+      padding: 0;
+      font-weight: 700;
+    }
+
+    &--item {
+      margin: 0 0 5px;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  // Education
+  &__school {
+    margin: 0 0 10px;
+    padding: 0;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: space-between;
+
+    p:last-child {
+      font-weight: 400;
+      color: $grey60;
+    }
+  }
+
+  &__degree {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  // Work Experience
+  &__job {
+    margin-bottom: 12px;
+
+    &--title {
+      font-size: 1.2em;
+      font-weight: 700;
+
+      display: flex;
+      justify-content: space-between;
+
+      p:last-child {
+        font-weight: 400;
+        color: $grey60;
+      }
+    }
+
+    &--info {
+      margin-bottom: 10px;
+      font-weight: 400;
+
+      display: flex;
+      justify-content: space-between;
+
+      p:last-child {
+        font-weight: 400;
+        color: $grey60;
+      }
+    }
+
+    &--description {
+      font-weight: 400;
+    }
+  }
+}
