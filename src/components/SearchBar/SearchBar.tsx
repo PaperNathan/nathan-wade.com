@@ -1,5 +1,5 @@
 import "./SearchBar.scss";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "@ricons/fa";
 import type { HTMLAttributes } from "react";
 
@@ -9,15 +9,22 @@ type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
 
 export default function SearchBar({ toggleCommandPalette }: SearchBarProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const path = location.pathname.slice(1);
+
+  const handleClick = (direction: "forward" | "back") => {
+    if (history.state.idx !== 0) {
+      direction === "back" ? navigate(-1) : navigate(1);
+    }
+  }
 
   return (
     <div className="SearchBar">
       <div className="SearchBar__navigation">
-        <div className="SearchBar__navigation--button">
+        <div className="SearchBar__navigation--button" onClick={ () => handleClick("back") }>
           <ArrowLeft style={{ width: "14px" }} />
         </div>
-        <div className="SearchBar__navigation--button">
+        <div className="SearchBar__navigation--button" onClick={ () => handleClick("forward") }>
           <ArrowRight style={{ width: "14px" }}  />
         </div>
       </div>
