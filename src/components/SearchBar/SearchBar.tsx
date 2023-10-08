@@ -13,9 +13,8 @@ export default function SearchBar({ toggleCommandPalette }: SearchBarProps) {
   const path = location.pathname.slice(1);
 
   const handleClick = (direction: "forward" | "back") => {
-    if (history.state.idx !== 0) {
-      direction === "back" ? navigate(-1) : navigate(1);
-    }
+    if (direction === "forward") navigate(1);
+    if (direction === "back" && history.state.idx !== 0) navigate(-1);
   }
 
   return (
