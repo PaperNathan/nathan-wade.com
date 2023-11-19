@@ -39,6 +39,10 @@ export default function getRouter() {
         {
           path: "/resume",
           element: <Resume />
+        },
+        {
+          path: "/readme",
+          element: <Home /> // portfolio
         }
       ]
     }

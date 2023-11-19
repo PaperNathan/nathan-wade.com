@@ -1,11 +1,10 @@
-import './About.scss'
-import { Link } from "react-router-dom";
+import './About.scss';
+import CommitTree from "./CommitTree/CommitTree";
 
 export default function About() {
   return (
     <div className="About">
-      <h1>About</h1>
-      <Link to="/">Go Back</Link>
+      <CommitTree />
     </div>
   )
 }
