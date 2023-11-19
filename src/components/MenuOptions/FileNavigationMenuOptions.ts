@@ -8,13 +8,23 @@ export const fileSystemMenuOptions: FileDisplayOptions[] = [
     linkPath: "/"
   },
   {
+    fileType: "doc",
+    fileName: "resume",
+    linkPath: "/resume"
+  },
+  {
     fileType: "json",
     fileName: "stack",
     linkPath: "/stack"
   },
   {
+    fileType: "git",
+    fileName: "about",
+    linkPath: "/about"
+  },
+  {
     fileType: "md",
     fileName: "README",
-    linkPath: "/about"
+    linkPath: "/readme"
   },
 ]

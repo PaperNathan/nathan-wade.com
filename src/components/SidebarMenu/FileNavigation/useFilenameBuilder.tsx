@@ -24,7 +24,6 @@ const getIcon = (fileType: string): JSX.Element => {
   }
 }
 
-
 export default function useFilenameBuilder(): {
   buildFileDisplay: (
     location: Location,

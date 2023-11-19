@@ -5,9 +5,8 @@ import type { IconType } from '@/models/AppTypes';
 import { 
   ContentCopyRound, 
   SearchSharp, 
-  ForumOutlined,
 } from "@ricons/material";
-import { Wrench, Inbox } from "@ricons/fa";
+import { Wrench, Inbox, History } from "@ricons/fa";
 import { HTMLAttributes } from "react";
 
 type IconBarProps = HTMLAttributes<HTMLDivElement> & {
@@ -34,7 +33,7 @@ export default function IconBar(props: IconBarProps) {
           <SearchSharp />
         </div>
         <div className={`IconBar__icon ${props.icon === "option3" ? "active" : ""}`} onClick={() => handleClick("option3")}>
-          <ForumOutlined />
+          <History />
         </div>
       </div>
       <div className="IconBar__bottom">
