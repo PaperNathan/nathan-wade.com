@@ -3,10 +3,6 @@ import Node from "./Node";
 
 export default function CommitTree() {
   const colors = ["magenta", "cyan", "yellow", "red", "blue"]
-  const drawerStyle = {
-    background: "#333339",
-    borderLeft: "1px solid #495057",
-  };
 
   return (
     <div className="CommitTree">
