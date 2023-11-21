@@ -32,10 +32,14 @@ export default function FileNavigation(props: FileNavigationProps) {
     <div className="FileNavigation">
       <div className="FileNavigation__title" onClick={ toggleOpen }>
         { getArrowPosition() }
-        { props.title }
+        { props.title.toUpperCase() }
       </div>
       <div className={`FileNavigation__files--${ toggleMenu }`}>
-        { props.menuOptions.map((option, key) => buildFileDisplay(location, key, option)) }
+        { 
+          (props.menuOptions.length === 0) ? 
+          <p className="FileNavigation__empty">No files found</p> :
+          props.menuOptions.map((option, key) => buildFileDisplay(location, key, option)) 
+        }
       </div>
     </div>
   )

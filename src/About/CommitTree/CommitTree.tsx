@@ -18,7 +18,7 @@ export default function CommitTree() {
         <Node color={colors[0]} up down />
         <Node color={colors[4]} dot upLeft down />
         <div className="CommitTree__message">
-          <p className="CommitTree__message--text">life: baby eli</p>
+          <p className="CommitTree__message--text">life: wee baby eli</p>
           <p className="CommitTree__message--date">2021</p>
         </div>
       </div>

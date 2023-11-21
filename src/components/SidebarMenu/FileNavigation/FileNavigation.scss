@@ -35,6 +35,15 @@
     }
   }
 
+  &__empty {
+    flex: 1;
+    color: grey;
+    margin-top: 0.5rem;
+    font-weight: 400;
+    font-size: 0.7em;
+    text-align: center;
+  }
+
   &__fileLink {
     display: flex;
     align-items: center;

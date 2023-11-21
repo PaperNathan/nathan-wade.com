@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type IconType = "fileNavigation" | "option2" | "option3" | "testPages" | "option5" | "closed";
+export type IconType = "fileNavigation" | "jobHistory" | "testPages" | "sandbox" | "closed";
 
 export type OS = "mac" | "other";
 

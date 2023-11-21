@@ -9,6 +9,10 @@ import StyleGuide from "@/StyleGuide/StyleGuide";
 import Shortcuts from "@/Shortcuts/Shortcuts";
 import Resume from "@/components/Resume/Resume";
 
+import ScoutAPM from "@/components/Jobs/ScoutAPM";
+import FoxAndFarthing from "@/components/Jobs/FoxAndFarthing";
+import FrankishIntl from "@/components/Jobs/FrankishIntl";
+
 export default function getRouter() {
   return createBrowserRouter([
     {
@@ -41,9 +45,17 @@ export default function getRouter() {
           element: <Resume />
         },
         {
-          path: "/readme",
-          element: <Home /> // portfolio
-        }
+          path: "/jobs/scout_apm",
+          element: <ScoutAPM />
+        },
+        {
+          path: "/jobs/fox_and_farthing",
+          element: <FoxAndFarthing />
+        },
+        {
+          path: "/jobs/frankish_intl",
+          element: <FrankishIntl />
+        },
       ]
     }
   ]);
