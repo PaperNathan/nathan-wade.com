@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
+// App routes
 import App from "@/App.tsx";
 import Error from "@/Error/Error.tsx";
 import Home from "@/Home/Home";
@@ -9,9 +10,18 @@ import StyleGuide from "@/StyleGuide/StyleGuide";
 import Shortcuts from "@/Shortcuts/Shortcuts";
 import Resume from "@/components/Resume/Resume";
 
+// Job routes
 import ScoutAPM from "@/components/Jobs/ScoutAPM";
 import FoxAndFarthing from "@/components/Jobs/FoxAndFarthing";
 import FrankishIntl from "@/components/Jobs/FrankishIntl";
+
+// Sandbox routes
+import DiceNotation from "@/components/Sandbox/DiceNotation";
+import KeyDownCharting from "@/components/Sandbox/KeyDownCharting";
+import Followers from "@/components/Sandbox/Followers";
+import Walker from "@/components/Sandbox/Walker";
+import CountDown from "@/components/Sandbox/CountDown";
+import Circles from "@/components/Sandbox/Circles";
 
 export default function getRouter() {
   return createBrowserRouter([
@@ -56,6 +66,30 @@ export default function getRouter() {
           path: "/jobs/frankish_intl",
           element: <FrankishIntl />
         },
+        {
+          path: "/sandbox/dice_notation",
+          element: <DiceNotation />
+        },
+        {
+          path: "/sandbox/keydown_charting",
+          element: <KeyDownCharting />
+        },
+        {
+          path: "/sandbox/followers",
+          element: <Followers />
+        },
+        {
+          path: "/sandbox/walker",
+          element: <Walker />
+        },
+        {
+          path: "/sandbox/countdown",
+          element: <CountDown />
+        },
+        {
+          path: "/sandbox/circles",
+          element: <Circles />
+        }
       ]
     }
   ]);
