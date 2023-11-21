@@ -21,10 +21,5 @@ export const fileSystemMenuOptions: FileDisplayOptions[] = [
     fileType: "git",
     fileName: "about",
     linkPath: "/about"
-  },
-  {
-    fileType: "md",
-    fileName: "README",
-    linkPath: "/readme"
-  },
+  }
 ]

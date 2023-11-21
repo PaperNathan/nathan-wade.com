@@ -12,12 +12,12 @@ import Navbar from '@/components/Navbar/Navbar';
 import IconBar from '@/components/IconBar/IconBar';
 import SidebarMenu from '@/components/SidebarMenu/SidebarMenu';
 import FileNavigation from "@/components/SidebarMenu/FileNavigation/FileNavigation";
-import Option2 from "@/components/SidebarMenu/Option2/Option2";
-import Option3 from "@/components/SidebarMenu/Option3/Option3";
 import Infobar from "@/components/Infobar/Infobar";
 
 import { fileSystemMenuOptions } from "@/components/MenuOptions/FileNavigationMenuOptions";
+import { jobHistoryMenuOptions } from "./components/MenuOptions/JobHistoryMenuOptions";
 import { testPagesMenuOptions } from "@/components/MenuOptions/TestPagesMenuOptions";
+import { sandboxMenuOptions } from "./components/MenuOptions/sandboxMenuOptions";
 import { AppReducer } from "@/store/AppStore";
 
 const initialState: AppState = {
@@ -48,10 +48,9 @@ export default function App() {
     if (isMounted.current) {
       const sidebarActiveContent: Record<IconType, ReactNode> = {
         fileNavigation: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
-        option2: <Option2 />, 
-        option3: <Option3 />,
-        testPages: <FileNavigation title="TEST PAGES" menuOptions={ testPagesMenuOptions } />,
-        option5: <Option3 />,
+        jobHistory: <FileNavigation title="Job History" menuOptions={ jobHistoryMenuOptions } />, 
+        testPages: <FileNavigation title="Test Pages" menuOptions={ testPagesMenuOptions } />,
+        sandbox: <FileNavigation title="Sandbox" menuOptions={ sandboxMenuOptions } />,
         closed: null
       };
       dispatch({ type: "SET_SIDEBAR", payload: !!sidebarActiveContent[state.icon] });

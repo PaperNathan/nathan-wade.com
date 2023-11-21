@@ -2,10 +2,7 @@ import "./IconBar.scss"
 
 import type { IconType } from '@/models/AppTypes';
 
-import { 
-  ContentCopyRound, 
-  SearchSharp, 
-} from "@ricons/material";
+import { ContentCopyRound } from "@ricons/material";
 import { Wrench, Inbox, History } from "@ricons/fa";
 import { HTMLAttributes } from "react";
 
@@ -29,10 +26,7 @@ export default function IconBar(props: IconBarProps) {
         <div className={`IconBar__icon ${props.icon === "fileNavigation" ? "active" : ""}`} onClick={() => handleClick("fileNavigation")}>
           <ContentCopyRound />
         </div>
-        <div className={`IconBar__icon ${props.icon === "option2" ? "active" : ""}`} onClick={() => handleClick("option2")}>
-          <SearchSharp />
-        </div>
-        <div className={`IconBar__icon ${props.icon === "option3" ? "active" : ""}`} onClick={() => handleClick("option3")}>
+        <div className={`IconBar__icon ${props.icon === "jobHistory" ? "active" : ""}`} onClick={() => handleClick("jobHistory")}>
           <History />
         </div>
       </div>
@@ -40,7 +34,7 @@ export default function IconBar(props: IconBarProps) {
         <div className={`IconBar__icon ${props.icon === "testPages" ? "active" : ""}`} onClick={() => handleClick("testPages")}>
           <Wrench />
         </div>
-        <div className={`IconBar__icon ${props.icon === "option5" ? "active" : ""}`} onClick={() => handleClick("option5")}>
+        <div className={`IconBar__icon ${props.icon === "sandbox" ? "active" : ""}`} onClick={() => handleClick("sandbox")}>
           <Inbox />
         </div>
       </div>
