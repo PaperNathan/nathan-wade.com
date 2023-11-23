@@ -28,38 +28,18 @@ const initialState: AppState = {
   showResume: false,
 };
 
+const sidebarActiveContent: Record<IconType, ReactNode> = {
+  fileNavigation: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
+  jobHistory: <FileNavigation title="Job History" menuOptions={ jobHistoryMenuOptions } />, 
+  testPages: <FileNavigation title="Test Pages" menuOptions={ testPagesMenuOptions } />,
+  sandbox: <FileNavigation title="Sandbox" menuOptions={ sandboxMenuOptions } />,
+  closed: null
+};
+
 export default function App() {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  // on mount
-  useEffect(() => {
-    window.addEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
-    window.addEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
-
-    return () => {
-      window.removeEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
-      window.removeEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
-    }
-  }, []);
-
-  // Effect to run on icon update but not on mount
-  const isMounted = useRef(false);
-  useEffect(() => {
-    if (isMounted.current) {
-      const sidebarActiveContent: Record<IconType, ReactNode> = {
-        fileNavigation: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
-        jobHistory: <FileNavigation title="Job History" menuOptions={ jobHistoryMenuOptions } />, 
-        testPages: <FileNavigation title="Test Pages" menuOptions={ testPagesMenuOptions } />,
-        sandbox: <FileNavigation title="Sandbox" menuOptions={ sandboxMenuOptions } />,
-        closed: null
-      };
-      dispatch({ type: "SET_SIDEBAR", payload: !!sidebarActiveContent[state.icon] });
-      dispatch({ type: "SET_SIDEBAR_CONTENT", payload: sidebarActiveContent[state.icon] ? sidebarActiveContent[state.icon] : undefined })
-    } else {
-      isMounted.current = true;
-    }
-  }, [state.icon]);
-
+  // Keyboard Shortcuts
   const handleKeyPress = useCallback((e: any) => {
     // Command Palette
     if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
@@ -79,26 +59,31 @@ export default function App() {
     if (e.key === "b" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       if (state.icon === "closed") {
-        dispatch({ type: "SET_ICON", payload: "fileNavigation" });
-        dispatch({ type: "SET_SIDEBAR", payload: true });
+        updateIcon("fileNavigation");
       } else {
-        dispatch({ type: "SET_ICON", payload: "closed" });
-        dispatch({ type: "SET_SIDEBAR", payload: false });
+        updateIcon("closed");
       }
     }
   }, [state]);
-  
+
+  // onMount Listeners
   useEffect(() => {
+    window.addEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
+    window.addEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
     document.addEventListener('keydown', handleKeyPress);
 
     return () => {
+      window.removeEventListener('beforeprint', () => dispatch({ type: "TOGGLE_RESUME", payload: true }));
+      window.removeEventListener('afterprint', () => dispatch({ type: "TOGGLE_RESUME", payload: false }));
       document.removeEventListener('keydown', handleKeyPress);
-    };
+    }
   }, [handleKeyPress]);
 
   // State Mutations
   const updateIcon = (name: IconType) => {
     dispatch({ type: "SET_ICON", payload: name });
+    dispatch({ type: "SET_SIDEBAR", payload: !!sidebarActiveContent[name] });
+    dispatch({ type: "SET_SIDEBAR_CONTENT", payload: sidebarActiveContent[name] ? sidebarActiveContent[name] : undefined })
   }
 
   return (
