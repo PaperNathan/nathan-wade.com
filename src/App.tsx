@@ -4,7 +4,7 @@ import './App.scss';
 import type { IconType, AppState } from '@/models/AppTypes';
 import type { ReactNode } from 'react';
 
-import { useEffect, useCallback, useRef, useReducer } from 'react';
+import { useEffect, useCallback, useReducer } from 'react';
 import { Outlet } from "react-router-dom";
 
 import Resume from "@/components/Resume/Resume";
