@@ -28,9 +28,11 @@ const initialState: AppState = {
   showResume: false,
 };
 
+const jobHistoryFlag = false;
+
 const sidebarActiveContent: Record<IconType, ReactNode> = {
   fileNavigation: <FileNavigation title="NATHAN.WADE [CV]" menuOptions={ fileSystemMenuOptions } />,
-  jobHistory: <FileNavigation title="Job History" menuOptions={ jobHistoryMenuOptions } />, 
+  jobHistory: jobHistoryFlag ? <FileNavigation title="Job History" menuOptions={ jobHistoryMenuOptions } /> : null,
   testPages: <FileNavigation title="Test Pages" menuOptions={ testPagesMenuOptions } />,
   sandbox: <FileNavigation title="Sandbox" menuOptions={ sandboxMenuOptions } />,
   closed: null
