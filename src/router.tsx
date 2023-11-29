@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // App routes
-import App from "@/App.tsx";
-import Error from "@/Error/Error.tsx";
+import AppLoader from "@/AppLoader";
+import Error from "@/Error/Error";
 import Home from "@/Home/Home";
 import About from "@/About/About";
 import Stack from "@/Stack/Stack";
@@ -27,7 +27,7 @@ export default function getRouter() {
   return createBrowserRouter([
     {
       path: "/",
-      element: <App />,
+      element: <AppLoader />,
       errorElement: <Error />,
       children: [
         {
