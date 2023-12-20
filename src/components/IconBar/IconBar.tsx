@@ -20,19 +20,15 @@ export default function IconBar(props: IconBarProps) {
     }
   }
 
-  const jobHistoryFlag = false;
-
   return (
     <div className="IconBar">
       <div className="IconBar__top">
         <div className={`IconBar__icon ${props.icon === "fileNavigation" ? "active" : ""}`} onClick={() => handleClick("fileNavigation")}>
           <ContentCopyRound />
         </div>
-        { jobHistoryFlag &&
         <div className={`IconBar__icon ${props.icon === "jobHistory" ? "active" : ""}`} onClick={() => handleClick("jobHistory")}>
           <History />
         </div>
-        }
       </div>
       <div className="IconBar__bottom">
         <div className={`IconBar__icon ${props.icon === "testPages" ? "active" : ""}`} onClick={() => handleClick("testPages")}>

@@ -2,7 +2,7 @@ import "./Navbar.scss";
 import type { HTMLAttributes } from "react";
 
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Spotify, DiceD20, Codepen } from "@ricons/fa";
+import { Github, Linkedin, Spotify, DiceD20, Codepen, Envelope } from "@ricons/fa";
 
 import Icon from "@/components/Icon/Icon";
 import SearchBar from "@/components/SearchBar/SearchBar";
@@ -36,6 +36,7 @@ export default function Navbar({
         <Icon url="https://codepen.io/PaperNathan" icon={<Codepen />} />
         <Icon url="https://www.linkedin.com/in/nathanwade-/" icon={<Linkedin />} />
         <Icon url="https://open.spotify.com/user/1295192359" icon={<Spotify />} />
+        <Icon url="mailto:nathan.tyler.wade@gmail.com" icon={<Envelope />} />
       </div>
     </div>
   )
