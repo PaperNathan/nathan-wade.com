@@ -5,7 +5,7 @@ import Icon from "@/components/Icon/Icon";
 import Image from "@/components/Image/Image";
 
 export default function Home() {
-  const imgStyle = { borderRadius: "100%"}
+  const imgStyle = { borderRadius: "100%"};
 
   return (
     <div className="Home">

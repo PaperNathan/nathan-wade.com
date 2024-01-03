@@ -58,24 +58,6 @@ export default function Shortcuts() {
           <p className="Shortcuts__support--title Shortcuts__support--safari">Safari</p>
         </div>
       </div>
-
-      {/* Print Resume */}
-      <div className="Shortcuts__lineItem">
-        <p><span className="type__code">{os === "mac" ? "Cmd" : "Ctrl"} + P</span> - Prints Resume</p>
-        <div className="Shortcuts__support">
-          <div className="Shortcuts__support--icon Shortcuts__support--chrome">
-            <Chrome />
-          </div>
-          <p className="Shortcuts__support--title Shortcuts__support--chrome">Chrome</p>
-        </div>
-
-        <div className="Shortcuts__support">
-          <div className="Shortcuts__support--icon Shortcuts__support--safari">
-            <Safari />
-          </div>
-          <p className="Shortcuts__support--title Shortcuts__support--safari">Safari</p>
-        </div>
-      </div>
     </div>
   )
 }

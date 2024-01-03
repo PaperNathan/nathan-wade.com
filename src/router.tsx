@@ -9,6 +9,7 @@ import Stack from "@/Stack/Stack";
 import StyleGuide from "@/StyleGuide/StyleGuide";
 import Shortcuts from "@/Shortcuts/Shortcuts";
 import Resume from "@/components/Resume/Resume";
+import Print from "@/components/Print/Print";
 
 // Job routes
 import ScoutAPM from "@/components/Jobs/ScoutAPM";
@@ -89,8 +90,18 @@ export default function getRouter() {
         {
           path: "/sandbox/circles",
           element: <Circles />
+        },
+      ]
+    },
+    {
+      path: "/print",
+      element: <Print />,
+      children: [
+        {
+          path: "/print/resume",
+          element: <Resume />
         }
       ]
-    }
+    },
   ]);
 }

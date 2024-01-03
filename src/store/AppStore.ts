@@ -38,11 +38,6 @@ export function AppReducer(state: AppState, action: AppAction): AppState {
     case "SET_COMMAND_PALETTE":
       return { ...state, showCommandPalette: action.payload };
 
-    case "TOGGLE_RESUME": {
-      const toggle = !state.showResume;
-      return { ...state, showResume: toggle };
-    }
-
     default:
       throw new Error("App.tsx - Invalid action type on reducer.");
   }
