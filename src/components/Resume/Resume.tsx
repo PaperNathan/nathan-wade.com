@@ -1,158 +1,123 @@
 import "./Resume.scss";
 
+import { MailOutlineOutlined, LocationOnRound } from "@ricons/material";
+import { ExternalLinkAlt } from "@ricons/fa";
+
 export default function Resume() {
   return (
     <div className="Resume">
-      <div className="Resume__top">
-        <div className="Resume__name">Nathan Wade</div>
-        <div className="Resume__jobTitle">FRONT-END DEVELOPER</div>
-      </div>
-
-      <div className="Resume__section">
-        <div className="Resume__header">SUMMARY</div>
-        <div className="Resume__content">
-          Experienced Front-End Developer with 7 years 
-          of proven expertise in designing, developing, and managing 
-          cutting-edge web applications. 
-          Skilled in translating business requirements into intuitive 
-          user interfaces and implementing robust functionality. 
-          Continuously striving for excellence, actively contributing 
-          to the improvement of software development processes and best 
-          practices.
+      <section className="Resume__header">
+        <div className="Resume__decoration--bar"></div>
+        <div className="Resume__information">
+          <h1>Nathan Wade</h1>
+          <p>
+            Experienced Front-End Developer with 7+ years of proven expertise in developing and managing cutting-edge web applications. A collaborative leader, I've led client meetings, crafted internal tools, and accelerated developer onboarding, consistently driving project success and eﬃciency gains.
+          </p>
         </div>
-      </div>
-
-      <div className="Resume__columnContainer">
-        <div className="Resume__column--left">
-          <div className="Resume__section">
-            <div className="Resume__header">CONTACT</div>
-            <div className="Resume__content">
-              <div className="Resume__email">
-                <span>Email</span>
-                <a href="mailto:papernathan@gmail.com">papernathan@gmail.com</a>
-              </div>
-              <div className="Resume__location">
-                <span>Location</span>Owensboro, KY
-              </div>
-            </div>
+        <div className="Resume__contact">
+          <div className="Resume__contact--item">
+            <MailOutlineOutlined className="Resume__contact--icon" />
+            <p>nathan.tyler.wade@gmail.com</p>
           </div>
-
-          <div className="Resume__section">
-            <div className="Resume__header">SKILLS</div>
-            <div className="Resume__content">
-              <div className="Resume__list">
-                <div className="Resume__list--name">Languages</div>
-                <ul className="Resume__list--items">
-                  <li>HTML</li>
-                  <li>CSS / SCSS</li>
-                  <li>Javascript / Typescript</li>
-                </ul>
-              </div>
-
-              <div className="Resume__list">
-                <div className="Resume__list--name">Technologies</div>
-                <ul className="Resume__list--items">
-                  <li>React.js</li>
-                  <li>Vue.js</li>
-                  <li>Bootstrap</li>
-                </ul>
-              </div>
-
-              <div className="Resume__list">
-                <div className="Resume__list--name">Testing</div>
-                <ul className="Resume__list--items">
-                  <li>Jest</li>
-                  <li>Vitest</li>
-                  <li>Mocha</li>
-                </ul>
-              </div>
-
-              <div className="Resume__list">
-                <div className="Resume__list--name">Bonus Technologies</div>
-                <ul className="Resume__list--items">
-                  <li>Ruby on Rails (ERB, Slim)</li>
-                  <li>Google Tag Manager</li>
-                  <li>Google Analytics</li>
-                  <li>Zapier</li>
-                  <li>TI-BASIC 83</li>
-                </ul>
-              </div>
-            </div>
+          <div className="Resume__contact--item">
+            <LocationOnRound className="Resume__contact--icon" />
+            <p>Owensboro, KY</p>
           </div>
-
-          <div className="Resume__section">
-            <div className="Resume__header">EDUCATION</div>
-            <div className="Resume__content">
-              <div className="Resume__school">
-                <p>Murray State University</p>
-                <p>2013</p>  
-              </div>
-              <div className="Resume__degree">Bachelor of Science in Graphic Design</div>
-            </div>
+          <div className="Resume__contact--item">
+            <ExternalLinkAlt className="Resume__contact--icon" />
+            <p>https://nathan-wade.com</p>
           </div>
         </div>
+        <section className="Resume__section">
+          <h1>Skills</h1>
+          <ul>
+            <li>Languages: HTML, CSS, Javascript, and Typescript</li>
+            <li>Frameworks: Vue.js, React.js, and jQuery</li>
+            <li>Testing Libraries: Jest and Vitest</li>
+            <li>Methodologies: Agile, Responsive Web Design, and a11y</li>
+          </ul>
+        </section>
+        <section className="Resume__section">
+          <h1>Work Experience</h1>
 
-        <div className="Resume__column--right">
-          <div className="Resume__section">
-            <div className="Resume__header">EXPERIENCE</div>
-            <div className="Resume__job">
-              <div className="Resume__job--title">
-                <p>Scout APM</p>
-                <p>Remote</p>
-              </div>
-              <div className="Resume__job--info">
-                <p>Senior Front-End Engineer</p>
-                <p>Aug 2020 - Present</p></div>
-              <div className="Resume__job--description">
-                <ul>
-                  <li>Developed and managed the front-end for 5 applications. This includes technology selection, training, and company-wide feature demonstrations.</li>
-                  <li>Reduced application load by optimizing front-end code and assets as shown by a 100% improvement in Google Lighthouse scores.</li>
-                  <li>Increased observability for our Vue application by writing custom instrumentation. This allowed us to pinpoint problem components and increase our response time to newly introduced bugs by 40%.</li>
-                  <li>Wrote tests for all incoming code changes which helped contribute to our core product maintaining 100% test coverage.</li>
-                  <li>Improved performance on a feature table by implementing a different front-end data store increasing the number of displayed items from 10,000 to greater than 2 million.</li>
-                  <li>I helped accelerate the onboarding of new developers by writing internal documentation, training materials, and offering pairing sessions.</li>
-                </ul>
-              </div>
+          <div className="Resume__job">
+            <div className="Resume__job--name">Scout APM</div>
+            <div className="Resume__job--info">
+              <p>Senior Front-End Developer</p>
+              <p>Aug 2020 - Present</p>
             </div>
-
-            <div className="Resume__job">
-              <div className="Resume__job--title">
-                <p>Fox & Farthing</p>
-                <p>Remote</p>
-              </div>
-              <div className="Resume__job--info">
-                <p>Reviewer and Experience Engineer</p>
-                <p>Jun 2021 - Jul 2022</p>
-              </div>
-              <div className="Resume__job--description">
-                <ul>
-                  <li>Collaborated with cross-functional teams to gather requirements, analyze end-user needs, and define software specifications.</li>
-                  <li>Improved code quality by executing code reviews.</li>
-                  <li>Assisted in feature planning and the product roadmap.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="Resume__job">
-              <div className="Resume__job--title">
-                <p>Frankish International</p>
-                <p>Taipei, Taiwan</p>  
-              </div>
-              <div className="Resume__job--info">
-                <p>Front-End Engineer</p>
-                <p>Jul 2016 - Jul 2018</p>
-              </div>
-              <div className="Resume__job--description">
-                <ul>
-                  <li>Designed, developed, and managed the front-end for 5 applications.</li>
-                  <li>Created and presented front-end software solutions to potential clients which resulted in the company being selected for 5 unique projects.</li>
-                  <li>Contributed to the continuous improvement of software development processes and best practices.</li>
-                </ul>
-              </div>
+            <div className="Resume__job--description">
+              <ul>
+                <li>Directed the successful development of 4 applications using Vue.js, Typescript, Ruby on Rails, and Vitest.</li>
+                <li>Developed custom instrumentation to provide observability into internal systems increasing our response time to errors by 35%.</li>
+                <li>Devised and implemented new front-end build strategy saving more than $1000 per month in CI costs. This reduced local build times for the development environment by 50%.</li>
+                <li>Built and released more than 40 features using Vue.js and Typescript.</li>
+                <li>Composed and supervised tests for incoming code changes to maintain 100% test coverage.</li>
+                <li>Increased application usability and aided SEO by reducing page load speeds a total of 40%.</li>
+                <li>Accelerated the onboarding of new developers by writing internal documentation, training materials, and offering pairing sessions. This reduced the time to ﬁrst commit from months to less than 2 weeks.</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div className="Resume__job">
+            <div className="Resume__job--name">Fox & Farthing</div>
+            <div className="Resume__job--info">
+              <p>UI/UX Engineer</p>
+              <p>Jun 2021 - Jul 2022</p>
+            </div>
+            <div className="Resume__job--description">
+              <ul>
+                <li>Integrated API calls into a WebGL project which increased engagement on the platform by 14%.</li>
+                <li>Delivered a major project 2 weeks early by supervising and advising on feature planning meetings.</li>
+                <li>Conducted code reviews and refactors leading to 22% performance gains.</li>
+                <li>Architected 1 large project and set the standard for deliverable code</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="Resume__job">
+            <div className="Resume__job--name">NDA Project</div>
+            <div className="Resume__job--info">
+              <p>Front-End Developer</p>
+              <p>Aug 2018 - Jul 2020</p>
+            </div>
+            <div className="Resume__job--description">
+              <ul>
+                <li>Constructed components in React for a MERN stack application.</li>
+                <li>Subject to NDA, no further details available.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="Resume__job">
+            <div className="Resume__job--name">Frankish International</div>
+            <div className="Resume__job--info">
+              <p>Front-End Developer</p>
+              <p>Jul 2020 - Jul 2028</p>
+            </div>
+            <div className="Resume__job--description">
+              <ul>
+                <li>Collaborated with designers to create, build, ship, and manage 5 applications.</li>
+                <li>Led meetings for 5 clients showcasing development solutions for their business needs.</li>
+                <li>Created an internal messaging tool to consolidate and archive client conversations and reduce messaging tool clutter by 60%.</li>
+                <li>Crafted an internal component library to reduce start up time for new projects from weeks to days.</li>            
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <section className="Resume__section">
+          <h1>Education</h1>
+          <div className="Resume__education">
+          <div className="Resume__education--name">Murray State University</div>
+            <div className="Resume__education--info">
+                <p>Bachelor of Science - Graphic Design</p>
+                <p>Dec 2013</p>
+              </div>
+            </div>
+        </section>
+      </section>
     </div>
   )
 }
